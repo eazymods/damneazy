@@ -18,9 +18,9 @@ const stats = [
 
 const Home = () => {
   return (
-    <div className="min-h-screen bg-eazy-black">
+    <div className="h-screen bg-eazy-black overflow-hidden">
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center relative overflow-hidden">
+      <section className="h-full flex items-center relative overflow-hidden">
         {/* Grid overlay */}
         <div className="absolute inset-0 grid-pattern opacity-30"></div>
         
@@ -41,7 +41,7 @@ const Home = () => {
           />
         </motion.div>
         
-        <div className="content-wide relative z-10 pt-24 pb-20">
+        <div className="content-wide relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             {/* Spacer for character image */}
             <div className="hidden lg:block lg:col-span-2"></div>

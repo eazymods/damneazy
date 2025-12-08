@@ -678,3 +678,106 @@ body::before {
 .link-hover:hover::after {
   width: 100%;
 }
+
+/* Server cards */
+.server-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.server-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 255, 0, 0.05),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.server-card:hover::before {
+  left: 100%;
+}
+
+/* Line clamp utility */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Scanline effect */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.3) 2px,
+    rgba(0, 0, 0, 0.3) 4px
+  );
+  pointer-events: none;
+}
+
+/* Matrix text glow */
+.matrix-glow {
+  text-shadow: 0 0 10px var(--color-accent-primary),
+               0 0 20px var(--color-accent-primary),
+               0 0 30px var(--color-accent-primary);
+}
+
+/* Terminal enhanced */
+.terminal-enhanced {
+  box-shadow: 
+    0 0 0 1px var(--color-eazy-border),
+    0 20px 50px -20px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    var(--color-accent-primary) 0%,
+    transparent 50%,
+    var(--color-accent-primary) 100%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Custom scrollbar for panels */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--color-eazy-darker);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--color-eazy-border-light);
+  border-radius: 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-primary);
+}
