@@ -91,6 +91,7 @@ export const damneazyConfig = {
 
   links: {
     discord: "https://discord.com/invite/ybndev",
+    repo: "https://github.com/eazymods/damneazy",
     github: "https://github.com/eazymods",
     linktree: "https://linktr.ee/ybnworld",
     youtube: "https://youtube.com/@YBNDevelopment",
@@ -254,6 +255,7 @@ export const damneazyConfig = {
     ],
   },
 };
+
 
 
 
