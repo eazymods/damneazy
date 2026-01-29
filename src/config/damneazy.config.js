@@ -38,6 +38,7 @@ export const damneazyConfig = {
               { k: "info", v: "who I am (Eazy)" },
               { k: "servers", v: "list servers (then open links)" },
               { k: "socials", v: "show my links (Discord/YouTube/etc)" },
+              { k: "repo", v: "open this website’s source repository" }
             ],
           },
           {
@@ -255,6 +256,7 @@ export const damneazyConfig = {
     ],
   },
 };
+
 
 
 
