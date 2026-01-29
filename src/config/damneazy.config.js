@@ -49,6 +49,7 @@ export const damneazyConfig = {
               { k: "websites", v: "list websites" },
               { k: "websites open <#>", v: "open a website" },
               { k: "open <discord|youtube|...>", v: "open a social link (or paste a URL)" },
+              { k: "repo", v: "open the github source code repo for this site" },
             ],
           },
           {
@@ -256,6 +257,7 @@ export const damneazyConfig = {
     ],
   },
 };
+
 
 
 
