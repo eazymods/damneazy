@@ -5,7 +5,18 @@ export const damneazyConfig = {
     title: "Developer",
     brief:
       "I’m a passionate FiveM developer who crafts scripts, weapons, and maps for servers. I also own multiple successful servers of my own, with future non‑FiveM projects coming soon. If you’re interested in working with me, contact me.",
-    stack: ["Lua", "JavaScript", "React", "Node.js", "SQL"],
+     stack: [
+      "Lua (FiveM Development)",
+      "ESX Legacy / QBCore Frameworks",
+      "JavaScript / TypeScript",
+      "Node.js & REST APIs",
+      "React / Next.js",
+      "HTML5 / CSS3 / Modern UI",
+      "Tailwind / Responsive Design",
+      "NUI & Game UI Systems",
+      "Discord Bots (discord.js)",
+      "SQL (oxmysql, Prisma)"
+    ]
   },
 
   terminal: {
@@ -243,5 +254,6 @@ export const damneazyConfig = {
     ],
   },
 };
+
 
 
