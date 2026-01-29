@@ -1,0 +1,1 @@
+import{j as e,O as a}from"./index-B9RLhQNM.js";const r=()=>e.jsx("div",{className:"relative min-h-screen bg-eazy-black overflow-x-hidden",children:e.jsx("main",{className:"relative",children:e.jsx(a,{})})});export{r as default};

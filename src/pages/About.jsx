@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { damneazyConfig } from "../config/damneazy.config";
 
 const skills = [
   { name: "Lua", level: 95 },
@@ -19,10 +20,10 @@ const timeline = [
 ];
 
 const socials = [
-  { icon: faDiscord, href: "https://discord.gg/", label: "Discord" },
-  { icon: faGithub, href: "https://github.com/", label: "GitHub" },
-  { icon: faYoutube, href: "https://youtube.com/", label: "YouTube" },
-  { icon: faShoppingCart, href: "https://eazy.tebex.io/", label: "Tebex" },
+  { icon: faDiscord, href: damneazyConfig?.links?.discord, label: "Discord" },
+  { icon: faGithub, href: damneazyConfig?.links?.github, label: "GitHub" },
+  { icon: faYoutube, href: damneazyConfig?.links?.youtube, label: "YouTube" },
+  { icon: faShoppingCart, href: damneazyConfig?.links?.store, label: "Store" },
 ];
 
 const About = () => {
@@ -42,12 +43,12 @@ const About = () => {
               </h1>
               <div className="w-24 h-1.5 bg-gradient-to-r from-accent-primary to-accent-secondary rounded-full mb-10"></div>
               <p className="text-eazy-grey text-xl leading-relaxed mb-5">
-                I'm <span className="text-eazy-white font-medium">Eazy</span>, a FiveM developer focused on 
-                creating high-quality scripts and immersive roleplay experiences.
+                I'm <span className="text-eazy-white font-medium">Eazy</span> — a passionate FiveM developer
+                crafting scripts, weapons, and maps for servers.
               </p>
               <p className="text-eazy-grey text-xl leading-relaxed mb-12">
-                Specializing in custom development, server optimization, and building 
-                complete gameplay systems from scratch.
+                I also own multiple successful servers of my own, and I’ve got future non‑FiveM projects
+                coming soon. If you want to work with me, hit me up on Discord.
               </p>
               
               {/* Socials */}
@@ -191,7 +192,7 @@ const About = () => {
               Have a project in mind? Let's discuss how I can help bring your vision to life.
             </p>
             <a 
-              href="https://discord.gg/" 
+              href={damneazyConfig?.links?.discord || "https://discord.com"} 
               target="_blank" 
               rel="noopener noreferrer" 
               className="btn-eazy btn-eazy-filled text-xl px-10 py-5"

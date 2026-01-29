@@ -9,10 +9,6 @@ const Home = lazy(() => import("../pages/Home"));
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <SplashScreen />,
-  },
-  {
-    path: "/home",
     element: (
       <Suspense fallback={<Loading />}>
         <Main />
@@ -24,6 +20,14 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
     ],
+  },
+  {
+    path: "/home",
+    element: <Navigate to="/" replace />,
+  },
+  {
+    path: "/boot",
+    element: <SplashScreen />,
   },
   {
     path: "*",

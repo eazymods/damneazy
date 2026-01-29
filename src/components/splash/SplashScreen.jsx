@@ -129,13 +129,13 @@ const SplashScreen = () => {
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay, duration: 0.3 }}
-      className="flex items-center gap-2 text-xs font-mono"
+      className="flex items-center gap-1 md:gap-2 text-[10px] md:text-xs font-mono"
     >
       <span className={variant === "success" ? "text-green-400" : variant === "warning" ? "text-yellow-400" : "text-eazy-grey"}>
         {variant === "success" ? "[✓]" : variant === "warning" ? "[!]" : "[→]"}
       </span>
       <span className="text-eazy-grey">{label}:</span>
-      <span className="text-accent-primary">{value}</span>
+      <span className="text-accent-primary break-all">{value}</span>
     </motion.div>
   );
 
@@ -198,13 +198,13 @@ const SplashScreen = () => {
         ))}
       </div>
 
-      <div className="relative w-full max-w-4xl mx-6 flex gap-6">
+      <div className="relative w-full max-w-4xl mx-4 md:mx-6 flex gap-6">
         {/* Main Terminal */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex-1"
+          className="flex-1 max-h-[80vh] md:max-h-none"
         >
           {stage >= 1 && (
             <div className="terminal">
@@ -212,18 +212,15 @@ const SplashScreen = () => {
                 <div className="terminal-dot bg-[#ff5f57]"></div>
                 <div className="terminal-dot bg-[#febc2e]"></div>
                 <div className="terminal-dot bg-[#28c840]"></div>
-                <span className="ml-4 text-eazy-grey text-xs font-mono">root@damneazy:~</span>
-                <span className="ml-auto text-eazy-grey text-xs font-mono opacity-50">PID: {Math.floor(Math.random() * 9999)}</span>
+                <span className="ml-2 md:ml-4 text-eazy-grey text-[10px] md:text-xs font-mono truncate">root@damneazy:~</span>
+                <span className="ml-auto text-eazy-grey text-[10px] md:text-xs font-mono opacity-50 hidden sm:inline">PID: {Math.floor(Math.random() * 9999)}</span>
               </div>
 
-              <div className="p-5 min-h-[320px] font-mono text-xs space-y-2 overflow-hidden">
+              <div className="p-3 md:p-5 min-h-[280px] md:min-h-[320px] font-mono text-[10px] md:text-xs space-y-2 overflow-y-auto custom-scrollbar">
                 {/* Command */}
-                <div className="flex items-center gap-2">
-                  <span className="text-accent-primary">root@damneazy</span>
-                  <span className="text-eazy-grey">:</span>
-                  <span className="text-blue-400">~</span>
-                  <span className="text-eazy-grey">$</span>
-                  <span className="text-eazy-off-white ml-1">./recon.sh --deep-scan --target visitor</span>
+                <div className="flex items-center gap-1 md:gap-2 flex-wrap">
+                  <span className="text-accent-primary">$</span>
+                  <span className="text-eazy-off-white">./recon.sh --target visitor</span>
                 </div>
 
                 {stage >= 2 && (
@@ -231,22 +228,20 @@ const SplashScreen = () => {
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="text-eazy-grey mt-3"
+                      className="text-eazy-grey mt-2 md:mt-3 text-[10px] md:text-xs"
                     >
-                      <span className="text-yellow-400">[*]</span> Initializing reconnaissance module...
+                      <span className="text-yellow-400">[*]</span> Initializing scan...
                     </motion.div>
                     
                     {/* Progress bar */}
-                    <div className="flex items-center gap-3 my-3">
-                      <span className="text-eazy-grey">[</span>
-                      <div className="flex-1 h-2 bg-eazy-card border border-eazy-border">
+                    <div className="flex items-center gap-2 md:gap-3 my-2 md:my-3">
+                      <div className="flex-1 h-1.5 md:h-2 bg-eazy-card border border-eazy-border">
                         <motion.div 
                           className="h-full bg-accent-primary"
                           style={{ width: `${scanProgress}%` }}
                         />
                       </div>
-                      <span className="text-eazy-grey">]</span>
-                      <span className="text-accent-primary w-12">{Math.floor(scanProgress)}%</span>
+                      <span className="text-accent-primary text-[10px] md:text-xs w-10 md:w-12">{Math.floor(scanProgress)}%</span>
                     </div>
                   </>
                 )}
@@ -257,8 +252,8 @@ const SplashScreen = () => {
                     animate={{ opacity: 1 }}
                     className="space-y-1 mt-2"
                   >
-                    <div className="text-green-400">[+] Target acquired</div>
-                    <InfoLine label="IPv4" value={systemInfo.ip || "scanning..."} variant="success" delay={0.1} />
+                    <div className="text-green-400 text-[10px] md:text-xs">[+] Target acquired</div>
+                    <InfoLine label="IP" value={systemInfo.ip || "scanning..."} variant="success" delay={0.1} />
                     <InfoLine label="Browser" value={systemInfo.browser} delay={0.2} />
                   </motion.div>
                 )}
@@ -267,13 +262,12 @@ const SplashScreen = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="space-y-1 mt-3"
+                    className="space-y-1 mt-2 md:mt-3"
                   >
-                    <div className="text-yellow-400">[*] Extracting system fingerprint...</div>
-                    <InfoLine label="Resolution" value={systemInfo.screenRes} delay={0.1} />
-                    <InfoLine label="CPU Cores" value={systemInfo.cores} delay={0.15} />
-                    <InfoLine label="Timezone" value={systemInfo.timezone} delay={0.2} />
-                    <InfoLine label="Language" value={systemInfo.language} delay={0.25} />
+                    <div className="text-yellow-400 text-[10px] md:text-xs">[*] System fingerprint...</div>
+                    <InfoLine label="Screen" value={systemInfo.screenRes} delay={0.1} />
+                    <InfoLine label="Cores" value={systemInfo.cores} delay={0.15} />
+                    <InfoLine label="TZ" value={systemInfo.timezone} delay={0.2} />
                   </motion.div>
                 )}
 
@@ -281,16 +275,13 @@ const SplashScreen = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="space-y-1 mt-3"
+                    className="space-y-1 mt-2 md:mt-3"
                   >
-                    <div className="text-cyan-400">[~] Network analysis...</div>
+                    <div className="text-cyan-400 text-[10px] md:text-xs">[~] Network...</div>
                     <InfoLine label="Status" value={systemInfo.online} variant="success" delay={0.1} />
-                    <InfoLine label="Connection" value={systemInfo.connection || "Unknown"} delay={0.15} />
+                    <InfoLine label="Type" value={systemInfo.connection || "Unknown"} delay={0.15} />
                     {systemInfo.battery && (
-                      <>
-                        <InfoLine label="Battery" value={systemInfo.battery} variant="warning" delay={0.2} />
-                        <InfoLine label="Charging" value={systemInfo.charging} delay={0.25} />
-                      </>
+                      <InfoLine label="Battery" value={systemInfo.battery} variant="warning" delay={0.2} />
                     )}
                   </motion.div>
                 )}
@@ -299,15 +290,15 @@ const SplashScreen = () => {
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    className="mt-4 p-4 border border-accent-primary bg-accent-primary/5"
+                    className="mt-3 md:mt-4 p-3 md:p-4 border border-accent-primary bg-accent-primary/5"
                   >
-                    <div className="text-accent-primary text-sm font-semibold mb-2">
-                      ══════════════ SCAN COMPLETE ══════════════
+                    <div className="text-accent-primary text-xs md:text-sm font-semibold mb-2">
+                      ═══ SCAN COMPLETE ═══
                     </div>
-                    <div className="text-eazy-off-white text-sm leading-relaxed">
+                    <div className="text-eazy-off-white text-xs md:text-sm leading-relaxed">
                       See how easy that was? Don't worry — I'm not harmful.
                       <br />
-                      <span className="text-eazy-grey text-xs">All data is client-side only. Nothing is logged or stored.</span>
+                      <span className="text-eazy-grey text-[10px] md:text-xs">Client-side only. Nothing logged.</span>
                     </div>
                   </motion.div>
                 )}
@@ -324,7 +315,7 @@ const SplashScreen = () => {
               animate={{ opacity: 1, x: 0, width: 280 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="hidden lg:block"
+              className="hidden xl:block"
             >
               <div className="terminal h-full max-h-[420px] flex flex-col">
                 <div className="terminal-header flex-shrink-0">
@@ -495,15 +486,16 @@ const SplashScreen = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="absolute bottom-20 left-1/2 -translate-x-1/2"
+            className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 w-[90%] md:w-auto"
           >
-            <span className="inline-flex items-center gap-3 px-8 py-4 border border-accent-primary bg-accent-primary/10 text-accent-primary text-sm font-mono tracking-wider uppercase hover:bg-accent-primary hover:text-eazy-black transition-all cursor-pointer">
+            <span className="inline-flex items-center justify-center gap-2 md:gap-3 px-4 md:px-8 py-3 md:py-4 border border-accent-primary bg-accent-primary/10 text-accent-primary text-xs md:text-sm font-mono tracking-wider uppercase hover:bg-accent-primary hover:text-eazy-black transition-all cursor-pointer w-full md:w-auto">
               <motion.span 
                 className="w-2 h-2 bg-accent-primary"
                 animate={{ opacity: [1, 0.3, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}
               />
-              CLICK ANYWHERE TO CONTINUE
+              <span className="hidden sm:inline">CLICK ANYWHERE TO CONTINUE</span>
+              <span className="sm:hidden">TAP TO CONTINUE</span>
               <motion.span 
                 className="w-2 h-2 bg-accent-primary"
                 animate={{ opacity: [1, 0.3, 1] }}
@@ -519,9 +511,9 @@ const SplashScreen = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
-        className="absolute bottom-6 left-6"
+        className="absolute bottom-4 md:bottom-6 left-4 md:left-6"
       >
-        <span className="font-display text-lg tracking-tight">
+        <span className="font-display text-base md:text-lg tracking-tight">
           <span className="text-accent-primary">DAMN</span>
           <span className="text-eazy-white">EAZY</span>
           <span className="text-eazy-grey">.DEV</span>
@@ -529,8 +521,8 @@ const SplashScreen = () => {
       </motion.div>
 
       {/* Corner decorations */}
-      <div className="absolute top-4 right-4 font-mono text-[10px] text-eazy-grey opacity-50">
-        v2.0.0 // RECON MODULE
+      <div className="absolute top-4 right-4 font-mono text-[8px] md:text-[10px] text-eazy-grey opacity-50">
+        v2.0.0
       </div>
     </div>
   );
