@@ -431,6 +431,27 @@ export default function BatchTerminal({ config, onScrollToServers }) {
       return;
     }
 
+    if (cmd === "repo") {
+      const repoUrl =
+        config?.links?.repo ||
+        config?.links?.github;
+
+      if (!repoUrl) {
+        push(block("repo", ["No repository link configured."]));
+        return;
+      }
+
+      openLink(repoUrl);
+      push(
+        block(
+          "repo",
+          ["Opened project repository."],
+          [`URL: ${repoUrl}`],
+        ),
+      );
+      return;
+    }
+
     if (cmd === "websites") {
       const websites = config?.websites || [];
       if (!sub || sub === "list") {
