@@ -140,7 +140,7 @@ export const damneazyConfig = {
       name: "YBN LS Shooting",
       subtitle: "#1 Shooting & Scenes",
       description: "The biggest server I own with over 200 players online daily, featuring a wide range of shooting modes and scenes.",
-      tags: ["PvP", "Scenes"],
+      tags: ["Shooting", "Scenes"],
       links: {
         youtube: "https://youtube.com/@YBNServers",
         store: "https://shop.ybn.world/",
@@ -153,7 +153,7 @@ export const damneazyConfig = {
       name: "STS Shooting",
       subtitle: "Optimized PvP",
       description: "Most optimized and simple PvP server — clean fights, fast load, no bloat.",
-      tags: ["PvP", "Server"],
+      tags: ["PvP", "Optimized"],
       links: {
         store: "https://sts-shooting.tebex.io/",
         discord: "https://discord.com/invite/stsshooting",
@@ -165,7 +165,7 @@ export const damneazyConfig = {
       name: "YBN Semi",
       subtitle: "Coming soon — public RP",
       description: "A public RP server for semi-serious roleplayers. (Coming soon)",
-      tags: ["RP", "Coming Soon"],
+      tags: ["Semi Serious", "Coming Soon"],
       links: {
         youtube: "https://youtube.com/@YBNServers",
         discord: "https://discord.com/invite/ybnsemi",
@@ -176,7 +176,7 @@ export const damneazyConfig = {
       name: "Oklahoma State RP",
       subtitle: "First server ever owned by me",
       description: "(Retired Server Now) The first vMenu server I owned based in Oklahoma - with R3site.",
-      tags: ["RP", "Retired"],
+      tags: ["vMenu", "Retired"],
       links: {
         youtube: "https://www.youtube.com/@OklahomaStateRoleplay",
         discord: "https://discord.gg/3YmTef7yb7",
@@ -254,6 +254,7 @@ export const damneazyConfig = {
     ],
   },
 };
+
 
 
 
